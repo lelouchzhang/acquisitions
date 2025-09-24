@@ -5,6 +5,9 @@ import { createUser, authenticateUser } from '#services/auth.service.js';
 import { jwttoken } from '#utils/jwt.js';
 import { cookies } from '#utils/cookies.js';
 
+/**
+ * controller: 接口层，处理请求与响应，做数据整理和数据校验，隔离实际的业务逻辑
+ */
 export const signup = async (req, res, next) => {
   try {
     // zod 校验身份
@@ -16,9 +19,8 @@ export const signup = async (req, res, next) => {
         details: formatValidationError(validationResult.error),
       });
     }
-
     const { name, email, password, role } = validationResult.data;
-
+    // 请求阶段结束，响应阶段开始
     const user = await createUser({ name, email, password, role });
 
     const token = jwttoken.sign({
@@ -31,7 +33,7 @@ export const signup = async (req, res, next) => {
 
     logger.info(`User registered successfully: ${email}`);
     res.status(201).json({
-      message: 'User registered',
+      message: '注册成功',
       user: {
         id: user.id,
         name: user.name,
@@ -40,7 +42,7 @@ export const signup = async (req, res, next) => {
       },
     });
   } catch (e) {
-    logger.error('Signup error', e);
+    logger.error('注册失败, 原因:', e);
 
     if (e.message === 'User with this email already exists') {
       return res.status(409).json({ error: 'Email already exist' });

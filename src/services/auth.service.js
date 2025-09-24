@@ -8,7 +8,7 @@ export const hashPassword = async password => {
   try {
     return await bcrypt.hash(password, 10);
   } catch (e) {
-    logger.error(`Error hashing the password: ${e}`);
+    logger.error(`加密密码时发生错误???: ${e}`);
     throw new Error('Error hashing');
   }
 };
@@ -17,7 +17,7 @@ export const comparePassword = async (password, hashedPassword) => {
   try {
     return await bcrypt.compare(password, hashedPassword);
   } catch (e) {
-    logger.error(`Error comparing password: ${e}`);
+    logger.error(`密码验证过程发生错误: ${e}`);
     throw new Error('Error comparing password');
   }
 };
@@ -30,8 +30,7 @@ export const createUser = async ({ name, email, password, role = 'user' }) => {
       .where(eq(users.email, email))
       .limit(1);
 
-    if (existingUser.length > 0)
-      throw new Error('User with this email already exists');
+    if (existingUser.length > 0) throw new Error('该邮箱名已被注册过...');
 
     const password_hash = await hashPassword(password);
 
@@ -46,10 +45,10 @@ export const createUser = async ({ name, email, password, role = 'user' }) => {
         created_at: users.create_at,
       });
 
-    logger.info(`User ${newUser.email} created successfully`);
+    logger.info(`User ${newUser.email} 注册成功!`);
     return newUser;
   } catch (e) {
-    logger.error(`Error creating the user: ${e}`);
+    logger.error(`创建新用户时发生错误: ${e}`);
     throw e;
   }
 };

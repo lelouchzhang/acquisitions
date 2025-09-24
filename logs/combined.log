@@ -24,3 +24,9 @@
 {"level":"info","message":"User 1@1.com created successfully","service":"acquisitions-api"}
 {"level":"info","message":"User registered successfully: 1@1.com","service":"acquisitions-api"}
 {"level":"info","message":"::ffff:172.31.64.1 - - [23/Sep/2025:11:14:37 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 94 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating the user: Error: User with this email already exists","service":"acquisitions-api"}
+{"level":"error","message":"Signup error User with this email already exists","service":"acquisitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///home/lelouch/k8s/acquisitions/src/services/auth.service.js:34:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async signup (file:///home/lelouch/k8s/acquisitions/src/controllers/auth.controller.js:25:18)"}
+{"level":"info","message":"::ffff:172.31.64.1 - - [24/Sep/2025:01:28:28 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [24/Sep/2025:01:44:34 +0000] \"GET / HTTP/1.1\" 200 24 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [24/Sep/2025:01:44:36 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
