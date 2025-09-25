@@ -58,7 +58,7 @@ export const signIn = async (req, res, next) => {
 
     if (!validationResult.success) {
       return res.status(400).json({
-        error: 'Validation failed',
+        error: '登陆失败',
         details: formatValidationError(validationResult.error),
       });
     }
@@ -77,7 +77,7 @@ export const signIn = async (req, res, next) => {
 
     logger.info(`User signed in successfully: ${email}`);
     res.status(200).json({
-      message: 'User signed in successfully',
+      message: '用户登陆成功!',
       user: {
         id: user.id,
         name: user.name,
@@ -105,7 +105,7 @@ export const signOut = async (req, res, next) => {
       message: 'User signed out successfully',
     });
   } catch (e) {
-    logger.error('Sign out error', e);
+    logger.error('登出成功!', e);
     next(e);
   }
 };

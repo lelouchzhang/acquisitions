@@ -74,13 +74,13 @@ export const authenticateUser = async ({ email, password }) => {
       throw new Error('Invalid password');
     }
 
-    logger.info(`User ${existingUser.email} authenticated successfully`);
+    logger.info(`User ${existingUser.email} 登录成功!`);
     return {
       id: existingUser.id,
       name: existingUser.name,
       email: existingUser.email,
       role: existingUser.role,
-      created_at: existingUser.created_at,
+      created_at: existingUser.create_at,
     };
   } catch (e) {
     logger.error(`Error authenticating user: ${e}`);
