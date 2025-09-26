@@ -49,3 +49,11 @@
 {"level":"info","message":"::ffff:172.20.160.1 - - [25/Sep/2025:01:29:15 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 102 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
 {"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
 {"level":"info","message":"::ffff:172.20.160.1 - - [25/Sep/2025:01:29:22 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:16 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:31 +0000] \"POST /health HTTP/1.1\" 404 146 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:32 +0000] \"POST /health HTTP/1.1\" 404 146 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:34 +0000] \"POST /health HTTP/1.1\" 404 146 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:35 +0000] \"POST /health HTTP/1.1\" 404 146 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
+{"ip":"::ffff:172.31.0.1","level":"warn","message":"Rate limit exceeded","path":"/health","service":"acquisitions-api","userAgent":"PostmanRuntime-ApipostRuntime/1.1.0"}
+{"level":"info","message":"::ffff:172.31.0.1 - - [26/Sep/2025:01:50:36 +0000] \"POST /health HTTP/1.1\" 403 51 \"-\" \"PostmanRuntime-ApipostRuntime/1.1.0\"","service":"acquisitions-api"}
