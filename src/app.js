@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(
   morgan('combined', {
     stream: { write: message => logger.info(message.trim()) },
-    skip: (req, res) => {
+    skip: (req, _res) => {
       const healthPaths = ['/health', '/ping', '/status', '/healthz'];
       return healthPaths.includes(req.path);
     },
