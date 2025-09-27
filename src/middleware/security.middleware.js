@@ -3,6 +3,10 @@ import logger from '#config/logger.js';
 import { slidingWindow } from '@arcjet/node';
 
 const securityMiddleware = async (req, res, next) => {
+  if (req.path === '/health') {
+    return next();
+  }
+
   try {
     const role = req.user?.role || 'guest';
 
@@ -10,13 +14,13 @@ const securityMiddleware = async (req, res, next) => {
 
     switch (role) {
       case 'admin':
-        limit = 20;
+        limit = 200;
         break;
       case 'user':
-        limit = 10;
+        limit = 100;
         break;
       case 'guest':
-        limit = 5;
+        limit = 50;
         break;
     }
 

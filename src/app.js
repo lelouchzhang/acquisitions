@@ -18,14 +18,14 @@ app.use(cookieParser());
 app.use(
   morgan('combined', {
     stream: { write: message => logger.info(message.trim()) },
+    skip: (req, res) => {
+      const healthPaths = ['/health', '/ping', '/status', '/healthz'];
+      return healthPaths.includes(req.path);
+    },
   })
 );
-app.use(securityMiddleware);
 
-app.get('/', (req, res) => {
-  logger.info('');
-  res.status(200).send('Hello from Acquisitions!');
-});
+app.use(securityMiddleware);
 
 app.get('/health', (req, res) => {
   res.status(200).json({
@@ -33,6 +33,10 @@ app.get('/health', (req, res) => {
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
   });
+});
+app.get('/', (req, res) => {
+  logger.info('');
+  res.status(200).send('Hello from Acquisitions!');
 });
 
 app.get('/api', (req, res) => {
